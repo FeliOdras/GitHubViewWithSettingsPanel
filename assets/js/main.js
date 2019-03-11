@@ -87,7 +87,7 @@ class ShowMyRepos {
             : `<div class="repoDescription noDescription">No description available`}
                             </div>   
                 <button class="view-repo"><a href="${repo.html_url}" target="_blank">Open repository on github</a></button>         
-                <div class="stars">Stars: ${repo.stargazers_count} Forks: ${repo.forks} Watch: ${repo.watchers_count}</div>      
+                <div class="stars"><i class="fas fa-star"></i> ${repo.stargazers_count} <i class="fas fa-code-branch"></i> ${repo.forks} <i class="fas fa-eye"></i> ${repo.watchers_count}</div>      
                 `
         }).join('')
     }
