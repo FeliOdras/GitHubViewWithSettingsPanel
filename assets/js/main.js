@@ -7,7 +7,6 @@ class ShowCurrentTime {
     }
 
     template() {
-        console.log(this.Date)
         let currMonth = this.Date.getMonth();
         currMonth == 0 ? currMonth = 'January' :
             currMonth == 1 ? currMonth = 'February' :
@@ -35,7 +34,6 @@ class ShowCurrentTime {
         let currYear = this.Date.getFullYear();
         let currHour = this.Date.getHours();
         let currMinute = this.Date.getMinutes();
-        console.log(currDay)
         let currTime = `
             <div class="date">
             ${currWeekday}, ${currMonth}
