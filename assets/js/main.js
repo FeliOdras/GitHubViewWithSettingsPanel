@@ -76,6 +76,24 @@ class ShowMyRepos {
             })
     }
 
+    template() {
+        let repoList = this.repoData;
+        console.log(repoList)
+        return repoList.map(repo => {
+            return `
+            <div class="repoName flexbox-item">
+            <h3> ${repo.name}</h3>
+            <div class="lang">Primary used technology: ${repo.language}</div>
+            ${repo.description != null ? `<div class"repo-description">${repo.description}</div>` 
+            : `<div class="repoDescription noDescription">No description available`}
+                            </div>   
+                <button class="view-repo"><a href="${repo.html_url}" target="_blank">Open repository on github</a></button>         
+                <div class="stars">Stars: ${repo.stargazers_count} Forks: ${repo.forks} Watch: ${repo.watchers_count}</div>
+                
+                `
+        }).join('')
+    }
+
     render() {
         const template = this.template();
         let output = template;
