@@ -43,8 +43,7 @@ class ShowCurrentTime {
             ${currYear}
             </div>
             <div class="hour">
-            ${currHour < 10 ? `0`:``}${currHour}:
-            ${currMinute < 10 ? `0`:``}${currMinute}
+            ${currHour < 10 ? `0`:``}${currHour}:${currMinute < 10 ? `0`:``}${currMinute}
             
             `;
         return currTime;
