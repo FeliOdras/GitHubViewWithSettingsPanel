@@ -63,8 +63,23 @@ class ShowMyRepos {
     constructor(domselector, githubUser) {
         this.htmlContainer = document.querySelector(domselector);
         this.githubUser = githubUser;
-        this.repoApiUrl = `https: //api.github.com/users/${this.githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
-        console.log(this.repoApiUrl)
+        this.repoApiUrl = `https://api.github.com/users/${this.githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
+        this.fetchData()
+    }
+
+    fetchData() {
+        fetch(this.repoApiUrl)
+            .then(response => response.json())
+            .then(repoData => {
+                this.repoData = repoData;
+                this.render();
+            })
+    }
+
+    render() {
+        const template = this.template();
+        let output = template;
+        this.htmlContainer.innerHTML = output;
     }
 }
 const showRepos = new ShowMyRepos('.repositories', 'FeliOdras')
