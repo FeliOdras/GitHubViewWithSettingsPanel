@@ -2,7 +2,6 @@ class ShowCurrentTime {
     constructor(domselector) {
         this.Date = new Date()
         this.htmlContainer = document.querySelector(domselector);
-        this.updateInterval = 1000;
         this.render();
     }
 
