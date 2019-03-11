@@ -3,3 +3,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+
+body {
+  background-image: url(/assets/img/bg-wolf.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  background-position: 50%;
+  background-attachment: fixed;
+  color: #fff;
+  text-shadow: 0 0 5px #666; }
+
+main {
+  max-width: 1200px;
+  margin: auto; }
+  main .repositories {
+    display: flex;
+    flex-wrap: wrap; }

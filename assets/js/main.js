@@ -81,13 +81,13 @@ class ShowMyRepos {
         return repoList.map(repo => {
             return `
             <div class="repoName flexbox-item">
-            <h3> ${repo.name}</h3>
-            <div class="lang">Primary used technology: ${repo.language}</div>
-            ${repo.description != null ? `<div class"repo-description">${repo.description}</div>` 
-            : `<div class="repoDescription noDescription">No description available`}
-                            </div>   
+                <h3> ${repo.name}</h3>
+                <div class="lang">Primary used technology: ${repo.language}</div>
+                ${repo.description != null ? `<div class"repo-description">${repo.description}</div>` 
+                : `<div class="repoDescription noDescription">No description available</div>`}  
                 <button class="view-repo"><a href="${repo.html_url}" target="_blank">Open repository on github</a></button>         
-                <div class="stars"><i class="fas fa-star"></i> ${repo.stargazers_count} <i class="fas fa-code-branch"></i> ${repo.forks} <i class="fas fa-eye"></i> ${repo.watchers_count}</div>      
+                <div class="stars"><i class="fas fa-star"></i> ${repo.stargazers_count} <i class="fas fa-code-branch"></i> ${repo.forks} <i class="fas fa-eye"></i> ${repo.watchers_count}</div> 
+                </div>     
                 `
         }).join('')
     }
