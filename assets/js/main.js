@@ -6,6 +6,7 @@ class ShowCurrentTime {
     }
 
     template() {
+        setInterval(function(){
         let currMonth = this.Date.getMonth();
         currMonth == 0 ? currMonth = 'January' :
             currMonth == 1 ? currMonth = 'February' :
@@ -33,6 +34,8 @@ class ShowCurrentTime {
         let currYear = this.Date.getFullYear();
         let currHour = this.Date.getHours();
         let currMinute = this.Date.getMinutes();
+        
+            let currSecond = this.Date.get();
         let currTime = `
             <div class="date">
             ${currWeekday}, ${currMonth}
@@ -43,10 +46,13 @@ class ShowCurrentTime {
             ${currYear}
             </div>
             <div class="hour">
-            ${currHour < 10 ? `0`:``}${currHour}:${currMinute < 10 ? `0`:``}${currMinute}
+            ${currHour < 10 ? `0`:``}${currHour}:${currMinute < 10 ? `0`:``}${currMinute}:${currSecond}
             
             `;
         return currTime;
+    },
+    1000
+    )
     }
 
     render() {
