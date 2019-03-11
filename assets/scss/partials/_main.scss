@@ -18,17 +18,19 @@ main {
     margin: auto;
 
     .search-field {
+        width: 80%;
+            margin:auto;
         input {
             color: #666;
             padding: 12px 7px;
             border-radius: 10px;
-            width: 90%;
+            width:100%;
         }
     }
 
     .currentTime {
         text-align: center;
-        margin-top: 30vh;
+        margin-top: 50px;
         margin-bottom: 30px;
 
         .date {

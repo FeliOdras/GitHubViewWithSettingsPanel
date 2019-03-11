@@ -27,14 +27,17 @@ body {
 main {
   max-width: 1000px;
   margin: auto; }
-  main .search-field input {
-    color: #666;
-    padding: 12px 7px;
-    border-radius: 10px;
-    width: 90%; }
+  main .search-field {
+    width: 80%;
+    margin: auto; }
+    main .search-field input {
+      color: #666;
+      padding: 12px 7px;
+      border-radius: 10px;
+      width: 100%; }
   main .currentTime {
     text-align: center;
-    margin-top: 30vh;
+    margin-top: 50px;
     margin-bottom: 30px; }
     main .currentTime .date {
       font-size: .8rem; }
