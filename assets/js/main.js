@@ -18,7 +18,6 @@ class ShowCurrentTime {
     }
 
     render() {
-        const template = this.template();
         let currentDate = this.getNowDate();
         let output = ``;
         output += `<div class="date">`;
