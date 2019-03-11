@@ -48,11 +48,14 @@ class ShowMyRepos {
             .then(repoData => {
                 this.repoData = repoData;
                 this.render();
+                this.searchRepos()
             })
     }
 
     template() {
         let repoList = this.repoData;
+        this.searchRepos()
+        this.searchRepos()
         return repoList.map(repo => {
             return `
             <div class="repoName flexbox-item">
@@ -68,7 +71,12 @@ class ShowMyRepos {
     }
 
     searchRepos(){
-
+        let repoList = this.repoData;
+        let searchValue = document.querySelector('#repoSearch').value;
+        console.log(searchValue)
+        
+        let repoListFiltered = repoList.filter(repo => searchValue = repo.name);
+        console.log(repoListFiltered); 
     }
 
     render() {
