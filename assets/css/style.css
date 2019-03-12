@@ -20,7 +20,7 @@ header {
   color: #fff;
   text-shadow: 0 0 5px #666;
   font-family: 'Roboto', sans-serif; }
-  .wrapper.bg-1 {
+  .wrapper#bg-1 {
     background-image: url(/assets/img/bg-wolf.jpg); }
 
 .fl {
