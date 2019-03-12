@@ -48,7 +48,7 @@ class ShowMyRepos {
             .then(repoData => {
                 this.repoData = repoData;
                 this.render();
-                this.searchRepos();
+                this.displaySearchResults();
             })
     }
 
@@ -74,10 +74,11 @@ class ShowMyRepos {
     isSearchMatch() {
         let repoListExt = this.repoData;
         repoListExt.forEach(repo => {
-            let searchValue = document.querySelector('#repoSearch').value;
-            let repoName = repo.name;
+            let searchValue = document.querySelector('#repoSearch').value.toLowerCase();
+            let repoName = repo.name.toLowerCase();
+            let repoMatch = repoName.match(searchValue);
             let searchMatch = ``;
-            searchValue == repoName ? searchMatch = 'isMatch' : searchMatch = 'noMatch';
+            repoMatch != null ? searchMatch = 'isMatch' : searchMatch = 'noMatch';
             repo.searchMatch = searchMatch;
         })
         return repoListExt;
@@ -86,7 +87,28 @@ class ShowMyRepos {
     searchRepos() {
         let repoList = this.isSearchMatch();
         let repoListSearch = repoList.filter(repo => repo.searchMatch == 'isMatch');
-        return repoListSearch;
+
+        return repoListSearch.map(repo => {
+            return `
+            <div class="repoName flexbox-item">
+                <h3> 
+                    ${repo.name}
+                    <div class="lang">Primary used technology: ${repo.language}</div>
+                </h3>
+                
+                ${repo.description != null ? `<div class"repo-description">${repo.description}</div>` 
+                : `<div class="repoDescription noDescription">No description available</div>`}  
+                <button class="view-repo"><a href="${repo.html_url}" target="_blank">Open repository on github</a></button>         
+                <div class="stars"><i class="fas fa-star"></i> ${repo.stargazers_count} <i class="fas fa-code-branch"></i> ${repo.forks} <i class="fas fa-eye"></i> ${repo.watchers_count}</div> 
+                </div>     
+                `
+        }).join('');
+    }
+
+    displaySearchResults() {
+        let searchOutput = this.searchRepos();
+        console.log(searchOutput)
+        this.htmlContainer.innerHTML = searchOutput;
     }
 
     render() {
