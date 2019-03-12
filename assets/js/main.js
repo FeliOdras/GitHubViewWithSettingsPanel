@@ -78,7 +78,7 @@ class ShowMyRepos {
             let repoName = repo.name.toLowerCase();
             let repoMatch = repoName.match(searchValue);
             let searchMatch = ``;
-            repoMatch != null ? searchMatch = 'isMatch' : searchMatch = 'noMatch';
+            repoMatch != null ? searchMatch = true : searchMatch = false;
             repo.searchMatch = searchMatch;
         })
         return repoListExt;
@@ -86,7 +86,7 @@ class ShowMyRepos {
 
     searchRepos() {
         let repoList = this.isSearchMatch();
-        let repoListSearch = repoList.filter(repo => repo.searchMatch == 'isMatch');
+        let repoListSearch = repoList.filter(repo => repo.searchMatch == true);
 
         return repoListSearch.map(repo => {
             return `
