@@ -5,19 +5,19 @@ class ShowCurrentTime {
         this.render();
     }
 
-    getNowDate(){
+    getNowDate() {
         let currentDate = moment().format('dddd, MMMM Do YYYY');
         return currentDate;
     }
 
-    getNowTime(){
-        setInterval(function() {
+    getNowTime() {
+        setInterval(function () {
             let currentTime = moment().format('hh:mm:ss');
             currentTime += '<span class="xsmall"> ';
-            currentTime +=  moment().format('A');
+            currentTime += moment().format('A');
             currentTime += '</div>'
             document.querySelector('.hour').innerHTML = currentTime;
-        }),1000
+        }), 1000
     }
 
     render() {
@@ -54,13 +54,14 @@ class ShowMyRepos {
 
     template() {
         let repoList = this.repoData;
-        this.searchRepos()
-        this.searchRepos()
         return repoList.map(repo => {
             return `
             <div class="repoName flexbox-item">
-                <h3> ${repo.name}</h3>
-                <div class="lang">Primary used technology: ${repo.language}</div>
+                <h3> 
+                    ${repo.name}
+                    <div class="lang">Primary used technology: ${repo.language}</div>
+                </h3>
+                
                 ${repo.description != null ? `<div class"repo-description">${repo.description}</div>` 
                 : `<div class="repoDescription noDescription">No description available</div>`}  
                 <button class="view-repo"><a href="${repo.html_url}" target="_blank">Open repository on github</a></button>         
@@ -70,13 +71,13 @@ class ShowMyRepos {
         }).join('')
     }
 
-    searchRepos(){
+    searchRepos() {
         let repoList = this.repoData;
         let searchValue = document.querySelector('#repoSearch').value;
         console.log(searchValue)
-        
+
         let repoListFiltered = repoList.filter(repo => searchValue = repo.name);
-        console.log(repoListFiltered); 
+        console.log(repoListFiltered);
     }
 
     render() {
