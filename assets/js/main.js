@@ -133,3 +133,10 @@ class ShowMyRepos {
     }
 }
 const showRepos = new ShowMyRepos('.repositories')
+
+class SelectBackground {
+    constructor(backgroundID) {
+        this.background = backgroundID;
+    }
+}
+const selectBackground = new SelectBackground('1')
