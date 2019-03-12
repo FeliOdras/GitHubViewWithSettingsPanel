@@ -17,7 +17,7 @@ class ShowCurrentTime {
             let currentTime = moment().format('hh:mm');
             currentTime += '<span class="xsmall"> ';
             currentTime += moment().format('A');
-            currentTime += '</div>'
+            currentTime += '</span></div>'
             document.querySelector('.hour').innerHTML = currentTime;
         }, 30000)
     }
