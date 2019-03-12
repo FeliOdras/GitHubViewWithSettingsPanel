@@ -37,15 +37,23 @@ class ShowCurrentTime {
 const showCurrentTime = new ShowCurrentTime('.currentTime');
 
 class ShowMyRepos {
-    constructor(domselector, githubUser) {
+    constructor(domselector) {
         this.htmlContainer = document.querySelector(domselector);
-        this.githubUser = githubUser;
-        this.repoApiUrl = `https://api.github.com/users/${this.githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
         this.fetchData()
     }
 
+    setGithubUser() {
+        let githubUser = document.querySelector('#newGithubUser').value;
+        console.log(githubUser)
+        return githubUser;
+    }
+
     fetchData() {
-        fetch(this.repoApiUrl)
+        let githubUser = this.setGithubUser();
+        console.log(githubUser)
+        let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
+        console.log()
+        fetch(repoApiUrl)
             .then(response => response.json())
             .then(repoData => {
                 this.repoData = repoData;
@@ -113,7 +121,8 @@ class ShowMyRepos {
     }
 
     addEventListeners() {
-        document.querySelector('#repoSearch').addEventListener('keyup', () => this.displaySearchResults())
+        document.querySelector('#repoSearch').addEventListener('keyup', () => this.displaySearchResults());
+        document.querySelector('#newGithubUserBttn').addEventListener('click', () => this.fetchData())
     }
 
     render() {
@@ -123,4 +132,4 @@ class ShowMyRepos {
         this.addEventListeners();
     }
 }
-const showRepos = new ShowMyRepos('.repositories', 'FeliOdras')
+const showRepos = new ShowMyRepos('.repositories')
