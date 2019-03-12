@@ -25,7 +25,6 @@ body {
   float: left; }
 
 main {
-  max-width: 1000px;
   margin: auto; }
   main .search-field {
     width: 80%;
