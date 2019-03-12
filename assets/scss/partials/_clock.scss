@@ -1,0 +1,14 @@
+.currentTime {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    .date {
+        font-size: .8rem;
+    }
+
+    .hour {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+}
