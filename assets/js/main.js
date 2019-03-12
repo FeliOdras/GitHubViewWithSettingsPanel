@@ -107,14 +107,18 @@ class ShowMyRepos {
 
     displaySearchResults() {
         let searchOutput = this.searchRepos();
-        console.log(searchOutput)
         this.htmlContainer.innerHTML = searchOutput;
+    }
+
+    addEventListeners() {
+        document.querySelector('#repoSearch').addEventListener('keyup', () => this.displaySearchResults())
     }
 
     render() {
         const template = this.template();
         let output = template;
         this.htmlContainer.innerHTML = output;
+        this.addEventListeners();
     }
 }
 const showRepos = new ShowMyRepos('.repositories', 'FeliOdras')
