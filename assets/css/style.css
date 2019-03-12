@@ -46,9 +46,7 @@ main {
     font-weight: bold; }
 
 .repositories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
+  display: flex; }
   .repositories h3 {
     margin-bottom: 10px; }
   .repositories .flexbox-item {
