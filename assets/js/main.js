@@ -44,13 +44,11 @@ class ShowMyRepos {
 
     setGithubUser() {
         let githubUser = document.querySelector('#newGithubUser').value;
-        console.log(githubUser)
         return githubUser;
     }
 
     fetchData() {
         let githubUser = this.setGithubUser();
-        console.log(githubUser)
         let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
         console.log()
         fetch(repoApiUrl)
@@ -135,8 +133,18 @@ class ShowMyRepos {
 const showRepos = new ShowMyRepos('.repositories')
 
 class SelectBackground {
-    constructor(backgroundID) {
-        this.background = backgroundID;
+    constructor() {
+        this.selectBGImage()
+        this.addEventListeners()
+    }
+
+    selectBGImage() {
+        let bgIDValue = document.querySelector('input[name="bgimage"]:checked').value;
+        console.log(bgIDValue)
+    }
+
+    addEventListeners() {
+        document.querySelector('.bgimage').addEventListener('click', () => this.selectBGImage())
     }
 }
-const selectBackground = new SelectBackground('1')
+const selectBackground = new SelectBackground()
