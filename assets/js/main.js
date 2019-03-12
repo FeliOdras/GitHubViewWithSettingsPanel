@@ -48,7 +48,7 @@ class ShowMyRepos {
             .then(repoData => {
                 this.repoData = repoData;
                 this.render();
-                this.isSearchMatch()
+                this.searchRepos();
             })
     }
 
@@ -76,20 +76,18 @@ class ShowMyRepos {
         repoListExt.forEach(repo => {
             let searchValue = document.querySelector('#repoSearch').value;
             let repoName = repo.name;
-            var isSearchMatch = ``;
-            searchValue == repoName ? isSearchMatch = true : isSearchMatch = false;
-            repo.isSearchMatch = isSearchMatch;
-            console.log(repo)
+            let searchMatch = ``;
+            searchValue == repoName ? searchMatch = 'isMatch' : searchMatch = 'noMatch';
+            repo.searchMatch = searchMatch;
         })
-        console.log(repoListExt)
+        return repoListExt;
     }
 
-    // searchValue == repoName ? console.log(true) : console.log(false);
-    // let repoListFiltered = repoList.filter(repo => {
-
-    // });
-
-
+    searchRepos() {
+        let repoList = this.isSearchMatch();
+        let repoListSearch = repoList.filter(repo => repo.searchMatch == 'isMatch');
+        return repoListSearch;
+    }
 
     render() {
         const template = this.template();
