@@ -12,22 +12,24 @@
 </head>
 
 <body>
-    <header>
-        <i class='fab fa-github'></i>
-    </header>
-    <aside class="settings">
-        <h3>Settings</h3>
-        Show repositories of: <br>
-        <input type="text" id="newGithubUser" value="FeliOdras"><span id="newGithubUserBttn"><i class="fas fa-search"></i></span>
-    </aside>
-    <main>
-        <div class="currentTime"></div>
-        <div class="search-field"> <input type="text" id="repoSearch" placeholder="Search repositories"></div>
-        <div class="repositories"></div>
-    </main>
-    <footer>
+    <div class="wrapper">
+        <header>
+            <i class='fab fa-github'></i>
+        </header>
+        <aside class="settings">
+            <h3>Settings</h3>
+            Show repositories of: <br>
+            <input type="text" id="newGithubUser" value="FeliOdras"><span id="newGithubUserBttn"><i class="fas fa-search"></i></span>
+        </aside>
+        <main>
+            <div class="currentTime"></div>
+            <div class="search-field"> <input type="text" id="repoSearch" placeholder="Search repositories"></div>
+            <div class="repositories"></div>
+        </main>
+        <footer>
 
-    </footer>
+        </footer>
+    </div>
 
     <script src="./node_modules/moment/min/moment-with-locales.min.js"></script>
     <script src="assets/js/main.js"></script>
