@@ -11,13 +11,15 @@ class ShowCurrentTime {
     }
 
     getNowTime() {
+        let currentTimeStart = moment().format('hh:mm');
+        document.querySelector('.hour').innerHTML = currentTimeStart;
         setInterval(function () {
             let currentTime = moment().format('hh:mm');
             currentTime += '<span class="xsmall"> ';
             currentTime += moment().format('A');
             currentTime += '</div>'
             document.querySelector('.hour').innerHTML = currentTime;
-        }), 60000
+        }, 30000)
     }
 
     render() {
