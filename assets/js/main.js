@@ -5,54 +5,30 @@ class ShowCurrentTime {
         this.render();
     }
 
-    template() {
-        let currMonth = this.Date.getMonth();
-        currMonth == 0 ? currMonth = 'January' :
-            currMonth == 1 ? currMonth = 'February' :
-            currMonth == 2 ? currMonth = 'March' :
-            currMonth == 3 ? currMonth = 'April' :
-            currMonth == 4 ? currMonth = 'May' :
-            currMonth == 5 ? currMonth = 'June' :
-            currMonth == 6 ? currMonth = 'July' :
-            currMonth == 7 ? currMonth = 'August' :
-            currMonth == 8 ? currMonth = 'September' :
-            currMonth == 9 ? currMonth = 'October' :
-            currMonth == 10 ? currMonth = 'November' :
-            currMonth == 11 ? currMonth = 'December' :
-            ''
-        let currDay = this.Date.getDate();
-        let currWeekday = this.Date.getDay();
-        currWeekday == 0 ? currWeekday = 'Sunday' :
-            currWeekday == 1 ? currWeekday = 'Monday' :
-            currWeekday == 2 ? currWeekday = 'Tuesday' :
-            currWeekday == 3 ? currWeekday = 'Wednesday' :
-            currWeekday == 4 ? currWeekday = 'Thursday' :
-            currWeekday == 5 ? currWeekday = 'Friday' :
-            currWeekday == 6 ? currWeekday = 'Saturday' :
-            ''
-        let currYear = this.Date.getFullYear();
-        let currHour = this.Date.getHours();
-        let currMinute = this.Date.getMinutes();
-        let currTime = `
-            <div class="date">
-            ${currWeekday}, ${currMonth}
-            ${currDay}${currDay == 1 || currDay == 21 || currDay == 31 ? 'st' 
-            : currDay == 2 || currDay == 22 ? 'nd' 
-            : currDay == 3 || currDay == 23 ? 'rd' 
-            : 'th'}
-            ${currYear}
-            </div>
-            <div class="hour">
-            ${currHour < 10 ? `0`:``}${currHour}:${currMinute < 10 ? `0`:``}${currMinute}
-            
-            `;
-        return currTime;
+    getNowDate(){
+        let currentDate = moment().format('dddd, MMMM Do YYYY');
+        return currentDate;
+    }
+
+    getNowTime(){
+        setInterval(function() {
+            let currentTime = moment().format('hh:mm:ss');
+            currentTime += '<span class="xsmall"> ';
+            currentTime +=  moment().format('A');
+            currentTime += '</div>'
+            document.querySelector('.hour').innerHTML = currentTime;
+        }),1000
     }
 
     render() {
-        const template = this.template();
-        let output = template;
+        let currentDate = this.getNowDate();
+        let output = ``;
+        output += `<div class="date">`;
+        output += `${currentDate}`;
+        output += `</div>`
+        output += `<div class="hour"></div>`
         this.htmlContainer.innerHTML = output;
+        this.getNowTime()
     }
 
 }
@@ -72,11 +48,14 @@ class ShowMyRepos {
             .then(repoData => {
                 this.repoData = repoData;
                 this.render();
+                this.searchRepos()
             })
     }
 
     template() {
         let repoList = this.repoData;
+        this.searchRepos()
+        this.searchRepos()
         return repoList.map(repo => {
             return `
             <div class="repoName flexbox-item">
@@ -89,6 +68,15 @@ class ShowMyRepos {
                 </div>     
                 `
         }).join('')
+    }
+
+    searchRepos(){
+        let repoList = this.repoData;
+        let searchValue = document.querySelector('#repoSearch').value;
+        console.log(searchValue)
+        
+        let repoListFiltered = repoList.filter(repo => searchValue = repo.name);
+        console.log(repoListFiltered); 
     }
 
     render() {

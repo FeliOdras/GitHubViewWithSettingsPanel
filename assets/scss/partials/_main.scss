@@ -18,11 +18,14 @@ main {
     margin: auto;
 
     .search-field {
+        width: 80%;
+        margin: auto;
+
         input {
             color: #666;
             padding: 12px 7px;
             border-radius: 10px;
-            width: 90%;
+            width: 100%;
         }
     }
 }
