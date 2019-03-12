@@ -73,11 +73,15 @@ class ShowMyRepos {
 
     searchRepos() {
         let repoList = this.repoData;
-        let searchValue = document.querySelector('#repoSearch').value;
-        console.log(searchValue)
-
-        let repoListFiltered = repoList.filter(repo => searchValue = repo.name);
-        console.log(repoListFiltered);
+        console.log(repoList)
+        let repoListFiltered = repoList.filter(repo => {
+            let searchValue = document.querySelector('#repoSearch').value;
+            console.log(searchValue)
+            let repoName = repo.name;
+            console.log(repoName)
+            searchValue == repoName ? console.log(true) : console.log(false);
+        });
+        console.log(repoListFiltered)
     }
 
     render() {
