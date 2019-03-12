@@ -24,6 +24,10 @@ body {
 .fl {
   float: left; }
 
+.xsmall {
+  font-size: .3em;
+  font-weight: normal; }
+
 main {
   margin: auto; }
   main .search-field {
