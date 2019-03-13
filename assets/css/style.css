@@ -11,6 +11,9 @@ header {
   text-align: center;
   font-size: 5em; }
 
+.page {
+  transition: all .5s; }
+
 .wrapper {
   background-size: cover;
   min-height: 100vh;
@@ -100,4 +103,5 @@ main {
 
 .settings {
   float: right;
-  width: 300px; }
+  width: 300px;
+  transition: all .5s; }
