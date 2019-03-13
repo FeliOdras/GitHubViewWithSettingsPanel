@@ -48,7 +48,7 @@ class ShowMyRepos {
 
     fetchData() {
         let githubUser = this.setGithubUser();
-        let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
+        let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?sort=created&client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`
         console.log()
         fetch(repoApiUrl)
             .then(response => response.json())
