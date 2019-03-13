@@ -95,8 +95,9 @@ class ShowMyRepos {
         let repoList = this.isSearchMatch();
         let repoListSearch = repoList.filter(repo => repo.searchMatch == true);
 
-        return repoListSearch.map(repo => {
-            return `
+        if (repoListSearch.length > 0) {
+            return repoListSearch.map(repo => {
+                return `
             <div class="repoName flexbox-item">
                 <h3> 
                     ${repo.name}
@@ -109,7 +110,10 @@ class ShowMyRepos {
                 <div class="stars"><i class="fas fa-star"></i> ${repo.stargazers_count} <i class="fas fa-code-branch"></i> ${repo.forks} <i class="fas fa-eye"></i> ${repo.watchers_count}</div> 
                 </div>     
                 `
-        }).join('');
+            }).join('');
+        } else {
+            return `<div class="error">There is no repository with that name.</div>`
+        }
     }
 
     displaySearchResults() {
