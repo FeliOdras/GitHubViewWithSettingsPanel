@@ -147,3 +147,22 @@ class SelectBackground {
     }
 }
 const selectBackground = new SelectBackground()
+
+class ShowSettingsPanel {
+    constructor() {
+        this.showPanel()
+    }
+
+    showPanel() {
+        let settingsPanelEle = document.querySelector('.settings');
+        let pageEle = document.querySelector('.page');
+        settingsPanelEle.setAttribute('style', 'margin-right:0');
+        pageEle.setAttribute('style', 'margin-left:-320px;')
+    }
+
+    addEventListeners() {
+
+    }
+}
+
+const showSettings = new ShowSettingsPanel();
