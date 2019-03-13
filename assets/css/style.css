@@ -147,3 +147,8 @@ main {
     .settings {
       width: 100vw;
       margin-right: -100vw; } }
+  .settings h3 {
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: #333; }
