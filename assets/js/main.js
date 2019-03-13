@@ -160,6 +160,13 @@ class ShowSettingsPanel {
         pageEle.setAttribute('style', 'margin-left:-320px;')
     }
 
+    hidePanel() {
+        let settingsPanelEle = document.querySelector('.settings');
+        let pageEle = document.querySelector('.page');
+        settingsPanelEle.setAttribute('style', 'margin-right:-320px;');
+        pageEle.setAttribute('style', 'margin-left:0px;')
+    }
+
     addEventListeners() {
 
     }
