@@ -160,3 +160,5 @@ main {
     color: #666;
     font-style: italic;
     margin: 6px 0; }
+  .settings .settingsElement {
+    margin: 10px 0; }
