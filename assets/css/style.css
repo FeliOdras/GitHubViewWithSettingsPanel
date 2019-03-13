@@ -12,7 +12,8 @@ header {
   font-size: 5em; }
 
 .page {
-  transition: all .5s; }
+  transition: all .5s;
+  overflow: hidden; }
 
 .wrapper {
   background-size: cover;
