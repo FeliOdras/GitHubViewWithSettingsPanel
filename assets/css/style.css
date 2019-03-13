@@ -180,7 +180,11 @@ main {
       width: 45%;
       margin: 2%;
       position: relative;
-      height: 80px;
+      height: 67px;
       overflow: hidden; }
+      .settings .selectBackground .bgImgSelect input {
+        position: absolute;
+        top: 5px;
+        left: 5px; }
       .settings .selectBackground .bgImgSelect img {
         max-width: 100%; }
