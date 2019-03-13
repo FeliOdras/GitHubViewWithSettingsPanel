@@ -36,4 +36,22 @@
     .settingsElement {
         margin: 10px 0;
     }
+
+    .selectBackground {
+        display: flex;
+        flex-wrap: wrap;
+
+        .bgImgSelect {
+            display: inline-block;
+            width: 45%;
+            margin: 2%;
+            position: relative;
+            height: 80px;
+            overflow: hidden;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
 }

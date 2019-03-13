@@ -172,3 +172,15 @@ main {
     margin: 6px 0; }
   .settings .settingsElement {
     margin: 10px 0; }
+  .settings .selectBackground {
+    display: flex;
+    flex-wrap: wrap; }
+    .settings .selectBackground .bgImgSelect {
+      display: inline-block;
+      width: 45%;
+      margin: 2%;
+      position: relative;
+      height: 80px;
+      overflow: hidden; }
+      .settings .selectBackground .bgImgSelect img {
+        max-width: 100%; }
