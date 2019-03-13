@@ -11,10 +11,16 @@ header {
   text-align: center;
   font-size: 5em;
   position: relative; }
-  header .showSettings {
+  header .settingsButton {
     position: absolute;
     top: 10px;
     right: 10px; }
+    header .settingsButton button {
+      position: absolute;
+      top: 0;
+      right: 0; }
+    header .settingsButton .hideSettings {
+      display: none; }
 
 .page {
   transition: all .5s;

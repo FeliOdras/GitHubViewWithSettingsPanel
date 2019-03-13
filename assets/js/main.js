@@ -154,17 +154,17 @@ class ShowSettingsPanel {
     }
 
     showPanel() {
-        let settingsPanelEle = document.querySelector('.settings');
-        let pageEle = document.querySelector('.page');
-        settingsPanelEle.setAttribute('style', 'margin-right:0');
-        pageEle.setAttribute('style', 'margin-left:-320px;')
+        document.querySelector('.settings').setAttribute('style', 'margin-right:0');;
+        document.querySelector('.page').setAttribute('style', 'margin-left:-320px;');;
+        document.querySelector('.showSettings').setAttribute('style', 'display:none;');
+        document.querySelector('.hideSettings').setAttribute('style', 'display:block;');
     }
 
     hidePanel() {
-        let settingsPanelEle = document.querySelector('.settings');
-        let pageEle = document.querySelector('.page');
-        settingsPanelEle.setAttribute('style', 'margin-right:-320px;');
-        pageEle.setAttribute('style', 'margin-left:0px;')
+        document.querySelector('.settings').setAttribute('style', 'margin-right:-320px;');
+        document.querySelector('.page').setAttribute('style', 'margin-left:0px;');
+        document.querySelector('.showSettings').setAttribute('style', 'display:block;');
+        document.querySelector('.hideSettings').setAttribute('style', 'display:none;');
     }
 
     addEventListeners() {
