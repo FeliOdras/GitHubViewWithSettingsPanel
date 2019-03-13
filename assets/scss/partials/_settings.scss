@@ -23,14 +23,27 @@
         color: #333;
     }
 
-    input[type='text'] {
-        background: transparent;
-        width: 90%;
-        border: none;
-        border-bottom: 1px solid #666;
-        color: #666;
-        font-style: italic;
-        margin: 6px 0;
+    .chooseUser {
+        input[type='text'] {
+            background: transparent;
+            width: 90%;
+            border: none;
+            border-bottom: 1px solid #666;
+            color: #666;
+            font-style: italic;
+            margin: 6px 0;
+        }
+
+        #newGithubUserBttn {
+            width: 8%;
+            margin-left: 2%;
+            border: 1px solid #666;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: center;
+            padding: 2px 0;
+            background-color: #ddd;
+        }
     }
 
     .settingsElement {
