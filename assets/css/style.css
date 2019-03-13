@@ -120,5 +120,8 @@ main {
 
 .settings {
   float: right;
-  width: 300px;
-  transition: all .5s; }
+  width: 320px;
+  transition: all .5s;
+  background-color: #CACDCB;
+  height: 100vh;
+  padding: 20px; }
