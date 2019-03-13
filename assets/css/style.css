@@ -13,12 +13,17 @@ header {
   position: relative; }
   header .settingsButton {
     position: absolute;
-    top: 10px;
-    right: 10px; }
+    top: 20px;
+    right: 20px; }
     header .settingsButton button {
       position: absolute;
       top: 0;
-      right: 0; }
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #fff;
+      text-shadow: 0 0 5px #666;
+      font-size: 1.5rem; }
     header .settingsButton .hideSettings {
       display: none; }
 
