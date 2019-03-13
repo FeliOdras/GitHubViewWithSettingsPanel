@@ -112,7 +112,7 @@ class ShowMyRepos {
                 `
             }).join('');
         } else {
-            return `<div class="error">There is no repository with that name.</div>`
+            return `<div class="error">There is no repository matching your search.</div>`
         }
     }
 

@@ -84,6 +84,10 @@ main {
       padding: 12px 7px;
       border-radius: 10px;
       width: 100%; }
+  main .error {
+    text-align: center;
+    font-size: 1.3rem;
+    width: 100%; }
 
 .currentTime {
   text-align: center;
@@ -96,7 +100,6 @@ main {
     font-weight: bold; }
 
 .repositories {
-  width: 100vw;
   overflow: hidden;
   display: flex;
   margin-top: 30px;
