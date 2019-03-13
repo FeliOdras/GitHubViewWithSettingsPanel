@@ -12,11 +12,8 @@
 </head>
 
 <body>
-    <div class="wrapper" id="bg-1">
-        <header>
-            <i class='fab fa-github'></i>
-        </header>
-        <aside class="settings">
+    <div class="page">
+        <aside class="settings" style="margin-right: -320px;">
             <h3>Settings</h3>
             Show repositories of: <br>
             <input type="text" id="newGithubUser" value="FeliOdras"><span id="newGithubUserBttn"><i class="fas fa-search"></i></span>
@@ -28,14 +25,20 @@
             <input type="radio" id="bg-5" name="bgimage" class="bgimage" value="bg-5"> BG5
             <input type="radio" id="bg-6" name="bgimage" class="bgimage" value="bg-6"> BG6
         </aside>
-        <main>
-            <div class="currentTime"></div>
-            <div class="search-field"> <input type="text" id="repoSearch" placeholder="Search repositories"></div>
-            <div class="repositories"></div>
-        </main>
-        <footer>
+        <div class="wrapper" id="bg-1" style="margin-left:0">
+            <header>
+                <i class='fab fa-github'></i>
+                <button class="showSettings"><i class="fas fa-cog"></i></button>
+            </header>
+            <main>
+                <div class="currentTime"></div>
+                <div class="search-field"> <input type="text" id="repoSearch" placeholder="Search repositories"></div>
+                <div class="repositories"></div>
+            </main>
+            <footer>
 
-        </footer>
+            </footer>
+        </div>
     </div>
 
     <script src="./node_modules/moment/min/moment-with-locales.min.js"></script>

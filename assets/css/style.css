@@ -97,3 +97,7 @@ main {
       .repositories .flexbox-item .stars i {
         margin-left: 7px;
         font-size: .7rem; }
+
+.settings {
+  float: right;
+  width: 300px; }
