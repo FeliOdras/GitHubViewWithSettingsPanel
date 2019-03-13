@@ -56,6 +56,16 @@ header {
       position: static; } }
   .wrapper#bg-1 {
     background-image: url(/assets/img/bg-wolf.jpg); }
+  .wrapper#bg-2 {
+    background-image: url(/assets/img/bg-canyon.jpg); }
+  .wrapper#bg-3 {
+    background-image: url(/assets/img/bg-house.jpg); }
+  .wrapper#bg-4 {
+    background-image: url(/assets/img/bg-mountain.jpg); }
+  .wrapper#bg-5 {
+    background-image: url(/assets/img/bg-nature.jpg); }
+  .wrapper#bg-6 {
+    background-image: url(/assets/img/bg-railroad-tracks.jpg); }
 
 .fl {
   float: left; }
