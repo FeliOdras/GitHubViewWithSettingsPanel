@@ -150,7 +150,7 @@ const selectBackground = new SelectBackground()
 
 class ShowSettingsPanel {
     constructor() {
-        this.showPanel()
+        this.addEventListeners()
     }
 
     showPanel() {
@@ -168,7 +168,8 @@ class ShowSettingsPanel {
     }
 
     addEventListeners() {
-
+        document.querySelector('.showSettings').addEventListener('click', () => this.showPanel());
+        document.querySelector('.hideSettings').addEventListener('click', () => this.hidePanel())
     }
 }
 
