@@ -152,3 +152,11 @@ main {
     font-weight: normal;
     font-size: 1.1rem;
     color: #333; }
+  .settings input[type='text'] {
+    background: transparent;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #666;
+    font-style: italic;
+    margin: 6px 0; }
