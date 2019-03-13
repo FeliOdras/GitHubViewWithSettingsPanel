@@ -11,6 +11,9 @@ header {
   text-align: center;
   font-size: 5em;
   position: relative; }
+  @media screen and (max-width: 380px) {
+    header {
+      position: static; } }
   header .settingsButton {
     position: absolute;
     top: 20px;
@@ -24,12 +27,17 @@ header {
       color: #fff;
       text-shadow: 0 0 5px #666;
       font-size: 1.5rem; }
+      @media screen and (max-width: 380px) {
+        header .settingsButton button {
+          color: #333;
+          text-shadow: none; } }
     header .settingsButton .hideSettings {
       display: none; }
 
 .page {
   transition: all .5s;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #ccc; }
 
 .wrapper {
   background-size: cover;
@@ -39,7 +47,13 @@ header {
   background-attachment: fixed;
   color: #fff;
   text-shadow: 0 0 5px #666;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 0 10px #333;
+  z-index: 999;
+  position: relative; }
+  @media screen and (max-width: 380px) {
+    .wrapper {
+      position: static; } }
   .wrapper#bg-1 {
     background-image: url(/assets/img/bg-wolf.jpg); }
 
@@ -124,4 +138,9 @@ main {
   transition: all .5s;
   background-color: #CACDCB;
   height: 100vh;
-  padding: 20px; }
+  padding: 20px;
+  margin-right: -320px; }
+  @media screen and (max-width: 380px) {
+    .settings {
+      width: 100vw;
+      margin-right: -100vw; } }

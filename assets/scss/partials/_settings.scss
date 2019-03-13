@@ -6,4 +6,10 @@
     background-color: #CACDCB;
     height: 100vh;
     padding: 20px;
+    margin-right: -320px;
+
+    @media screen and (max-width: 380px) {
+        width: 100vw;
+        margin-right: -100vw;
+    }
 }

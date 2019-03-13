@@ -161,7 +161,7 @@ class ShowSettingsPanel {
     }
 
     hidePanel() {
-        document.querySelector('.settings').setAttribute('style', 'margin-right:-320px;');
+        document.querySelector('.settings').setAttribute('style', 'margin-right:-380px;');
         document.querySelector('.page').setAttribute('style', 'margin-left:0px;');
         document.querySelector('.showSettings').setAttribute('style', 'display:block;');
         document.querySelector('.hideSettings').setAttribute('style', 'display:none;');
