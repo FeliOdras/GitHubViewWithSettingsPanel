@@ -37,16 +37,24 @@ const showCurrentTime = new ShowCurrentTime(".currentTime");
 class ShowMyRepos {
   constructor(domselector) {
     this.htmlContainer = document.querySelector(domselector);
+    this.checkLocalStorageUser();
+  }
+
+  checkLocalStorageUser() {
+    let githubUser = localStorage.getItem("User");
+    githubUser == `` ? (githubUser = "FeliOdras") : (githubUser = githubUser);
     this.fetchData();
   }
 
   setGithubUser() {
     let githubUser = document.querySelector("#newGithubUser").value;
-    return githubUser;
+    localStorage.removeItem("User");
+    localStorage.setItem("User", githubUser);
+    this.fetchData();
   }
 
   fetchData() {
-    let githubUser = this.setGithubUser();
+    let githubUser = localStorage.getItem("User");
     let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?sort=created&client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`;
     fetch(repoApiUrl)
       .then(response => response.json())
@@ -107,6 +115,7 @@ class ShowMyRepos {
   searchRepos() {
     let repoList = this.isSearchMatch();
     let repoListSearch = repoList.filter(repo => repo.searchMatch == true);
+    console.log(repoListSearch);
 
     if (repoListSearch.length > 0) {
       return repoListSearch
@@ -153,13 +162,17 @@ class ShowMyRepos {
       .addEventListener("keyup", () => this.displaySearchResults());
     document
       .querySelector("#newGithubUserBttn")
-      .addEventListener("click", () => this.fetchData());
+      .addEventListener("click", () => this.setGithubUser());
   }
 
   render() {
     const template = this.template();
-    let output = template;
-    this.htmlContainer.innerHTML = output;
+    let repoList = this.isSearchMatch();
+    let headline = `<h3>${repoList[0].owner.login}</h3>`;
+    console.log(headline);
+    console.log(repoList);
+    this.htmlContainer.insertAdjacentHTML("afterbegin", headline);
+    this.htmlContainer.insertAdjacentHTML("beforeend", template);
     this.addEventListeners();
   }
 }
