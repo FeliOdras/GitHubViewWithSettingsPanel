@@ -76,8 +76,7 @@ class ShowMyRepos {
                     <div class="lang">Primary used technology: ${
                       repo.language
                     }</div>
-                </h3>
-                
+                </h3>       
                 ${
                   repo.description != null
                     ? `<div class"repo-description">${repo.description}</div>`
@@ -115,9 +114,7 @@ class ShowMyRepos {
   searchRepos() {
     let repoList = this.isSearchMatch();
     let repoListSearch = repoList.filter(repo => repo.searchMatch == true);
-    console.log(repoListSearch);
-
-    if (repoListSearch.length > 0) {
+    if (repoListSearch.length > 1) {
       return repoListSearch
         .map(repo => {
           return `
@@ -168,11 +165,10 @@ class ShowMyRepos {
   render() {
     const template = this.template();
     let repoList = this.isSearchMatch();
-    let headline = `<h3>${repoList[0].owner.login}</h3>`;
-    console.log(headline);
-    console.log(repoList);
-    this.htmlContainer.insertAdjacentHTML("afterbegin", headline);
-    this.htmlContainer.insertAdjacentHTML("beforeend", template);
+    let ownerName = localStorage.getItem("User");
+    let headline = `<h3>${ownerName}'s repositories</h3>`;
+    document.querySelector(".reposHeadline").innerHTML = headline;
+    this.htmlContainer.innerHTML = template;
     this.addEventListeners();
   }
 }
