@@ -91,7 +91,6 @@ class ShowMyRepos {
   }
 
   fetchData() {
-  // debugger
     let githubUser = localStorage.getItem("User");
     githubUser == `` || githubUser == null ? (githubUser = "FeliOdras") : (githubUser = githubUser);
     localStorage.setItem("User", githubUser);
@@ -238,65 +237,80 @@ class SelectBackground {
   constructor() {
     //this.getImageID()
     this.autoclosePanel = new ShowSettingsPanel();
-    this.getImageID()
     this.addEventListeners();
+    this.attachBackgroundImage();
+  }
+
+  setBackground() {
+    let imageID = localStorage.getItem('bgImageID');
+    if (imageID == null || imageID == undefined) {  
+        imageID = 'bg-1';
+        document.querySelector('#bg-1').checked = true;
+    }else {
+       imageID = imageID;
+    }
+    localStorage.setItem('bgImageID',imageID)
+    this.attachBackgroundImage();
+  }
+
+  attachBackgroundImage() {
+    let imageID = localStorage.getItem('bgImageID');
+    imageID == null || imageID == undefined ? this.setBackground() : 
+    document.querySelector(".wrapper").setAttribute('id', imageID)
   }
 
   getImageID() {
-    let bgSelected = document.querySelector('.selectBackground .bgimage').value;
-    console.log(bgSelected)
-
-// for(var i=0; inputElements[i]; ++i){
-//       if(inputElements[i].checked){
-//            checkedValue = inputElements[i].value;
-//            break;
-//       }
-// }
+    let imageSelection = document.querySelectorAll('.bgimage');
+    let imageID = localStorage.getItem('bgImageID');
+    for (let i = 0, length = imageSelection.length; i < length; i++)
+    {
+     if (imageSelection[i].checked)
+     {
+        imageID = imageSelection[i].value;
+      break;
+     }
   }
+  localStorage.setItem('bgImageID', imageID);
+  this.attachBackgroundImage();
+}
 
-  // selectImage1() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-1");
-  // }
-
-  // selectImage2() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-2");
-  // }
-
-  // selectImage3() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-3");
-  // }
-
-  // selectImage4() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-4");
-  // }
-
-  // selectImage5() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-5");
-  // }
-
-  // selectImage6() {
-  //   document.querySelector(".wrapper").setAttribute("id", "bg-6");
-  // }
-
-  addEventListeners() {
-    // document
-    //   .querySelector('input[id="bg-1"]')
-    //   .addEventListener("click", () => this.selectImage1());
-    // document
-    //   .querySelector('input[id="bg-2"]')
-    //   .addEventListener("click", () => this.selectImage2());
-    // document
-    //   .querySelector('input[id="bg-3"]')
-    //   .addEventListener("click", () => this.selectImage3());
-    // document
-    //   .querySelector('input[id="bg-4"]')
-    //   .addEventListener("click", () => this.selectImage4());
-    // document
-    //   .querySelector('input[id="bg-5"]')
-    //   .addEventListener("click", () => this.selectImage5());
-    // document
-    //   .querySelector('input[id="bg-6"]')
-    //   .addEventListener("click", () => this.selectImage6());
+addEventListeners() {
+    document
+      .querySelector('input[id="bg-1"]')
+      .addEventListener("click", () => {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
+    document
+      .querySelector('input[id="bg-2"]')
+      .addEventListener("click", () =>  {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
+    document
+      .querySelector('input[id="bg-3"]')
+      .addEventListener("click", () =>  {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
+    document
+      .querySelector('input[id="bg-4"]')
+      .addEventListener("click", () =>  {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
+    document
+      .querySelector('input[id="bg-5"]')
+      .addEventListener("click", () =>  {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
+    document
+      .querySelector('input[id="bg-6"]')
+      .addEventListener("click", () =>  {
+        this.getImageID();
+        this.autoclosePanel.hidePanel();
+      });
   }
 }
 const selectBackground = new SelectBackground();
