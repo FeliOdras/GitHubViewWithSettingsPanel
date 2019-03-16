@@ -34,8 +34,6 @@ class ShowCurrentTime {
 }
 const showCurrentTime = new ShowCurrentTime(".currentTime");
 
-
-
 class SelectBackground {
   constructor() {
     //this.getImageID()
@@ -281,7 +279,7 @@ class ShowMyRepos {
     const template = this.template();
     let repoList = this.isSearchMatch();
     let owner = localStorage.getItem('User');
-    let headline = `<h3>${owner}</h3>`;
+    let headline = `<h3>${owner}'s repositories</h3>`;
     document.querySelector('.reposHeadline').innerHTML = headline;
     this.htmlContainer.innerHTML = template;
     this.addEventListeners();
