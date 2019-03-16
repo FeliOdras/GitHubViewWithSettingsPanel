@@ -37,33 +37,39 @@ const showCurrentTime = new ShowCurrentTime(".currentTime");
 class ShowMyRepos {
   constructor(domselector) {
     this.htmlContainer = document.querySelector(domselector);
-    this.checkLocalStorageUser();
     this.fetchData();
   }
 
-  checkLocalStorageUser() {
-    let githubUser = localStorage.getItem("User");
-    let githubUserNew = document.querySelector("#newGithubUser").value;
-    githubUser == `` || githubUser == null ? (githubUser = "FeliOdras") : (githubUser = githubUserNew);
-    localStorage.removeItem("User");
+  setLocalStorageUser() {
+    let githubUser = document.querySelector("#newGithubUser").value;
     localStorage.setItem("User", githubUser);
-    return githubUser
+    this.fetchData();
   }
 
   fetchData() {
   // debugger
-    let githubUser = this.checkLocalStorageUser();
+    let githubUser = localStorage.getItem("User");
+    githubUser == `` || githubUser == null ? (githubUser = "FeliOdras") : (githubUser = githubUser);
+    localStorage.setItem("User", githubUser);
     let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?sort=created&client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`;
     fetch(repoApiUrl)
-      .then(response => response.json())
-      .then(repoData => {
+      .then(
+        response => response.json())
+      .then(     
+        repoData => {
         this.repoData = repoData;
-        this.render();
-      });
+        this.render();   
+      })
+      .catch ( 
+        error => {
+          console.log(repoApiUrl.status)
+        }
+      );
   }
 
   template() {
     let repoList = this.repoData;
+    if (repoList.length > 0) {
     return repoList
       .map(repo => {
         return `
@@ -92,6 +98,12 @@ class ShowMyRepos {
                 `;
       })
       .join("");
+    }else{
+      let owner = localStorage.getItem('User');
+      console.log(owner)
+      
+      return `<div class="error">The username you have entered does not seem to exist or ${owner} has no public repositories.</div> `
+    }
   }
 
   isSearchMatch() {
@@ -112,8 +124,6 @@ class ShowMyRepos {
   searchRepos() {
     let repoList = this.isSearchMatch();
     let repoListSearch = repoList.filter(repo => repo.searchMatch == true);
-    console.log(repoListSearch);
-
     if (repoListSearch.length > 0) {
       return repoListSearch
         .map(repo => {
@@ -159,17 +169,18 @@ class ShowMyRepos {
       .addEventListener("keyup", () => this.displaySearchResults());
     document
       .querySelector("#newGithubUserBttn")
-      .addEventListener("click", () => this.fetchData());
+      .addEventListener("click", () => this.setLocalStorageUser());
   }
 
   render() {
     const template = this.template();
     let repoList = this.isSearchMatch();
-    let headline = `<h3>${repoList[0].owner.login}</h3>`;
+    let owner = localStorage.getItem('User');
+    let headline = `<h3>${owner}</h3>`;
     console.log(headline);
     console.log(repoList);
-    this.htmlContainer.insertAdjacentHTML("afterbegin", headline);
-    this.htmlContainer.insertAdjacentHTML("beforeend", template);
+    document.querySelector('.reposHeadline').innerHTML = headline;
+    this.htmlContainer.innerHTML = template;
     this.addEventListeners();
   }
 }
