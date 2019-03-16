@@ -60,10 +60,15 @@ class ShowMyRepos {
         this.repoData = repoData;
         this.render();   
       })
-      .catch ( 
+      .catch(
         error => {
-          console.log(repoApiUrl.status)
+          document.querySelector('.reposHeadline').innerHTML = '<h3>404</h3>'
+          this.htmlContainer.innerHTML = `
+          <div class="error">The user <strong>${githubUser}</strong> does not seem to exist</div> 
+          `;
+          localStorage.clear();
         }
+
       );
   }
 
@@ -99,10 +104,8 @@ class ShowMyRepos {
       })
       .join("");
     }else{
-      let owner = localStorage.getItem('User');
-      console.log(owner)
-      
-      return `<div class="error">The username you have entered does not seem to exist or ${owner} has no public repositories.</div> `
+      let owner = localStorage.getItem('User');      
+      return `<div class="error"><strong>${owner}</strong> does not seem to have any public repositories.</div> `
     }
   }
 
