@@ -172,7 +172,9 @@ class ShowMyRepos {
       .addEventListener("keyup", () => this.displaySearchResults());
     document
       .querySelector("#newGithubUserBttn")
-      .addEventListener("click", () => this.setLocalStorageUser());
+      .addEventListener("click", () => {
+        this.setLocalStorageUser()
+      });
   }
 
   render() {
