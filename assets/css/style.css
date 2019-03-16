@@ -99,6 +99,13 @@ main {
     font-size: 5rem;
     font-weight: bold; }
 
+.reposHeadline h3 {
+  padding: 7px 15px;
+  margin: 15px 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #666;
+  text-shadow: none; }
+
 .repositories {
   overflow: hidden;
   display: flex;
