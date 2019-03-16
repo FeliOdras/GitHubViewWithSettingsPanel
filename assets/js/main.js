@@ -237,6 +237,7 @@ const showRepos = new ShowMyRepos(".repositories");
 class SelectBackground {
   constructor() {
     //this.getImageID()
+    this.autoclosePanel = new ShowSettingsPanel();
     this.addEventListeners();
   }
 
