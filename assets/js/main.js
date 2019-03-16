@@ -34,8 +34,6 @@ class ShowCurrentTime {
 }
 const showCurrentTime = new ShowCurrentTime(".currentTime");
 
-
-
 class SelectBackground {
   constructor() {
     //this.getImageID()
