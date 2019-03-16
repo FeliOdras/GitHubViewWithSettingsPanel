@@ -34,9 +34,108 @@ class ShowCurrentTime {
 }
 const showCurrentTime = new ShowCurrentTime(".currentTime");
 
+
+
+class SelectBackground {
+  constructor() {
+    //this.getImageID()
+    this.addEventListeners();
+  }
+
+  selectImage1() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-1");
+  }
+
+  selectImage2() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-2");
+  }
+
+  selectImage3() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-3");
+  }
+
+  selectImage4() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-4");
+  }
+
+  selectImage5() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-5");
+  }
+
+  selectImage6() {
+    document.querySelector(".wrapper").setAttribute("id", "bg-6");
+  }
+
+  addEventListeners() {
+    document
+      .querySelector('input[id="bg-1"]')
+      .addEventListener("click", () => this.selectImage1());
+    document
+      .querySelector('input[id="bg-2"]')
+      .addEventListener("click", () => this.selectImage2());
+    document
+      .querySelector('input[id="bg-3"]')
+      .addEventListener("click", () => this.selectImage3());
+    document
+      .querySelector('input[id="bg-4"]')
+      .addEventListener("click", () => this.selectImage4());
+    document
+      .querySelector('input[id="bg-5"]')
+      .addEventListener("click", () => this.selectImage5());
+    document
+      .querySelector('input[id="bg-6"]')
+      .addEventListener("click", () => this.selectImage6());
+  }
+}
+const selectBackground = new SelectBackground();
+
+class ShowSettingsPanel {
+  constructor() {
+    this.addEventListeners();
+  }
+
+  showPanel() {
+    document.querySelector(".settings").setAttribute("style", "margin-right:0");
+    document
+      .querySelector(".page")
+      .setAttribute("style", "margin-left:-320px;");
+    document
+      .querySelector(".showSettings")
+      .setAttribute("style", "display:none;");
+    document
+      .querySelector(".hideSettings")
+      .setAttribute("style", "display:block;");
+  }
+
+  hidePanel() {
+    document
+      .querySelector(".settings")
+      .setAttribute("style", "margin-right:-380px;");
+    document.querySelector(".page").setAttribute("style", "margin-left:0px;");
+    document
+      .querySelector(".showSettings")
+      .setAttribute("style", "display:block;");
+    document
+      .querySelector(".hideSettings")
+      .setAttribute("style", "display:none;");
+  }
+
+  addEventListeners() {
+    document
+      .querySelector(".showSettings")
+      .addEventListener("click", () => this.showPanel());
+    document
+      .querySelector(".hideSettings")
+      .addEventListener("click", () => this.hidePanel());
+  }
+}
+
+const showSettings = new ShowSettingsPanel();
+
 class ShowMyRepos {
   constructor(domselector) {
     this.htmlContainer = document.querySelector(domselector);
+    this.autoclosePanel = new ShowSettingsPanel();
     this.fetchData();
   }
 
@@ -173,7 +272,8 @@ class ShowMyRepos {
     document
       .querySelector("#newGithubUserBttn")
       .addEventListener("click", () => {
-        this.setLocalStorageUser()
+        this.setLocalStorageUser();
+        this.autoclosePanel.hidePanel();
       });
   }
 
@@ -188,99 +288,3 @@ class ShowMyRepos {
   }
 }
 const showRepos = new ShowMyRepos(".repositories");
-
-class SelectBackground {
-  constructor() {
-    //this.getImageID()
-    this.addEventListeners();
-  }
-
-  selectImage1() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-1");
-  }
-
-  selectImage2() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-2");
-  }
-
-  selectImage3() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-3");
-  }
-
-  selectImage4() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-4");
-  }
-
-  selectImage5() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-5");
-  }
-
-  selectImage6() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-6");
-  }
-
-  addEventListeners() {
-    document
-      .querySelector('input[id="bg-1"]')
-      .addEventListener("click", () => this.selectImage1());
-    document
-      .querySelector('input[id="bg-2"]')
-      .addEventListener("click", () => this.selectImage2());
-    document
-      .querySelector('input[id="bg-3"]')
-      .addEventListener("click", () => this.selectImage3());
-    document
-      .querySelector('input[id="bg-4"]')
-      .addEventListener("click", () => this.selectImage4());
-    document
-      .querySelector('input[id="bg-5"]')
-      .addEventListener("click", () => this.selectImage5());
-    document
-      .querySelector('input[id="bg-6"]')
-      .addEventListener("click", () => this.selectImage6());
-  }
-}
-const selectBackground = new SelectBackground();
-
-class ShowSettingsPanel {
-  constructor() {
-    this.addEventListeners();
-  }
-
-  showPanel() {
-    document.querySelector(".settings").setAttribute("style", "margin-right:0");
-    document
-      .querySelector(".page")
-      .setAttribute("style", "margin-left:-320px;");
-    document
-      .querySelector(".showSettings")
-      .setAttribute("style", "display:none;");
-    document
-      .querySelector(".hideSettings")
-      .setAttribute("style", "display:block;");
-  }
-
-  hidePanel() {
-    document
-      .querySelector(".settings")
-      .setAttribute("style", "margin-right:-380px;");
-    document.querySelector(".page").setAttribute("style", "margin-left:0px;");
-    document
-      .querySelector(".showSettings")
-      .setAttribute("style", "display:block;");
-    document
-      .querySelector(".hideSettings")
-      .setAttribute("style", "display:none;");
-  }
-
-  addEventListeners() {
-    document
-      .querySelector(".showSettings")
-      .addEventListener("click", () => this.showPanel());
-    document
-      .querySelector(".hideSettings")
-      .addEventListener("click", () => this.hidePanel());
-  }
-}
-
-const showSettings = new ShowSettingsPanel();
