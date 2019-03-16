@@ -99,16 +99,16 @@ class ShowMyRepos {
     fetch(repoApiUrl)
       .then(
         response => response.json())
-      .then(     
+      .then(
         repoData => {
         this.repoData = repoData;
-        this.render();   
+        this.render();
       })
       .catch(
         error => {
           document.querySelector('.reposHeadline').innerHTML = '<h3>404</h3>'
           this.htmlContainer.innerHTML = `
-          <div class="error">The user <strong>${githubUser}</strong> does not seem to exist</div> 
+          <div class="error">The user <strong>${githubUser}</strong> does not seem to exist</div>
           `;
           localStorage.clear();
         }
@@ -123,32 +123,32 @@ class ShowMyRepos {
       .map(repo => {
         return `
             <div class="repoName flexbox-item">
-                <h3> 
+                <h3>
                     ${repo.name}
                     <div class="lang">Primary used technology: ${
                       repo.language
                     }</div>
                 </h3>
-                
+
                 ${
                   repo.description != null
                     ? `<div class"repo-description">${repo.description}</div>`
                     : `<div class="repoDescription noDescription">No description available</div>`
-                }  
+                }
                 <button class="view-repo"><a href="${
                   repo.html_url
-                }" target="_blank">Open repository on github</a></button>         
+                }" target="_blank">Open repository on github</a></button>
                 <div class="stars"><i class="fas fa-star"></i> ${
                   repo.stargazers_count
                 } <i class="fas fa-code-branch"></i> ${
           repo.forks
-        } <i class="fas fa-eye"></i> ${repo.watchers_count}</div> 
-                </div>     
+        } <i class="fas fa-eye"></i> ${repo.watchers_count}</div>
+                </div>
                 `;
       })
       .join("");
     }else{
-      let owner = localStorage.getItem('User');      
+      let owner = localStorage.getItem('User');
       return `<div class="error"><strong>${owner}</strong> does not seem to have any public repositories.</div> `
     }
   }
@@ -176,27 +176,27 @@ class ShowMyRepos {
         .map(repo => {
           return `
             <div class="repoName flexbox-item">
-                <h3> 
+                <h3>
                     ${repo.name}
                     <div class="lang">Primary used technology: ${
                       repo.language
                     }</div>
                 </h3>
-                
+
                 ${
                   repo.description != null
                     ? `<div class"repo-description">${repo.description}</div>`
                     : `<div class="repoDescription noDescription">No description available</div>`
-                }  
+                }
                 <button class="view-repo"><a href="${
                   repo.html_url
-                }" target="_blank">Open repository on github</a></button>         
+                }" target="_blank">Open repository on github</a></button>
                 <div class="stars"><i class="fas fa-star"></i> ${
                   repo.stargazers_count
                 } <i class="fas fa-code-branch"></i> ${
             repo.forks
-          } <i class="fas fa-eye"></i> ${repo.watchers_count}</div> 
-                </div>     
+          } <i class="fas fa-eye"></i> ${repo.watchers_count}</div>
+                </div>
                 `;
         })
         .join("");
@@ -238,52 +238,65 @@ class SelectBackground {
   constructor() {
     //this.getImageID()
     this.autoclosePanel = new ShowSettingsPanel();
+    this.getImageID()
     this.addEventListeners();
   }
 
-  selectImage1() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-1");
+  getImageID() {
+    let bgSelected = document.querySelector('.selectBackground .bgimage').value;
+    console.log(bgSelected)
+
+// for(var i=0; inputElements[i]; ++i){
+//       if(inputElements[i].checked){
+//            checkedValue = inputElements[i].value;
+//            break;
+//       }
+// }
   }
 
-  selectImage2() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-2");
-  }
+  // selectImage1() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-1");
+  // }
 
-  selectImage3() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-3");
-  }
+  // selectImage2() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-2");
+  // }
 
-  selectImage4() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-4");
-  }
+  // selectImage3() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-3");
+  // }
 
-  selectImage5() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-5");
-  }
+  // selectImage4() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-4");
+  // }
 
-  selectImage6() {
-    document.querySelector(".wrapper").setAttribute("id", "bg-6");
-  }
+  // selectImage5() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-5");
+  // }
+
+  // selectImage6() {
+  //   document.querySelector(".wrapper").setAttribute("id", "bg-6");
+  // }
 
   addEventListeners() {
-    document
-      .querySelector('input[id="bg-1"]')
-      .addEventListener("click", () => this.selectImage1());
-    document
-      .querySelector('input[id="bg-2"]')
-      .addEventListener("click", () => this.selectImage2());
-    document
-      .querySelector('input[id="bg-3"]')
-      .addEventListener("click", () => this.selectImage3());
-    document
-      .querySelector('input[id="bg-4"]')
-      .addEventListener("click", () => this.selectImage4());
-    document
-      .querySelector('input[id="bg-5"]')
-      .addEventListener("click", () => this.selectImage5());
-    document
-      .querySelector('input[id="bg-6"]')
-      .addEventListener("click", () => this.selectImage6());
+    // document
+    //   .querySelector('input[id="bg-1"]')
+    //   .addEventListener("click", () => this.selectImage1());
+    // document
+    //   .querySelector('input[id="bg-2"]')
+    //   .addEventListener("click", () => this.selectImage2());
+    // document
+    //   .querySelector('input[id="bg-3"]')
+    //   .addEventListener("click", () => this.selectImage3());
+    // document
+    //   .querySelector('input[id="bg-4"]')
+    //   .addEventListener("click", () => this.selectImage4());
+    // document
+    //   .querySelector('input[id="bg-5"]')
+    //   .addEventListener("click", () => this.selectImage5());
+    // document
+    //   .querySelector('input[id="bg-6"]')
+    //   .addEventListener("click", () => this.selectImage6());
   }
 }
 const selectBackground = new SelectBackground();
