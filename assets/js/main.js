@@ -38,30 +38,27 @@ class ShowMyRepos {
   constructor(domselector) {
     this.htmlContainer = document.querySelector(domselector);
     this.checkLocalStorageUser();
+    this.fetchData();
   }
 
   checkLocalStorageUser() {
     let githubUser = localStorage.getItem("User");
-    githubUser == `` ? (githubUser = "FeliOdras") : (githubUser = githubUser);
-    this.fetchData();
-  }
-
-  setGithubUser() {
-    let githubUser = document.querySelector("#newGithubUser").value;
+    let githubUserNew = document.querySelector("#newGithubUser").value;
+    githubUser == `` || githubUser == null ? (githubUser = "FeliOdras") : (githubUser = githubUserNew);
     localStorage.removeItem("User");
     localStorage.setItem("User", githubUser);
-    this.fetchData();
+    return githubUser
   }
 
   fetchData() {
-    let githubUser = localStorage.getItem("User");
+  // debugger
+    let githubUser = this.checkLocalStorageUser();
     let repoApiUrl = `https://api.github.com/users/${githubUser}/repos?sort=created&client_id=fd294f0cd34bb0c9d185&client_secret=5429a69b75c88ca46305aafd53715532c56e9abf`;
     fetch(repoApiUrl)
       .then(response => response.json())
       .then(repoData => {
         this.repoData = repoData;
         this.render();
-        this.displaySearchResults();
       });
   }
 
@@ -162,7 +159,7 @@ class ShowMyRepos {
       .addEventListener("keyup", () => this.displaySearchResults());
     document
       .querySelector("#newGithubUserBttn")
-      .addEventListener("click", () => this.setGithubUser());
+      .addEventListener("click", () => this.fetchData());
   }
 
   render() {
