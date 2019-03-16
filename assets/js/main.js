@@ -180,8 +180,6 @@ class ShowMyRepos {
     let repoList = this.isSearchMatch();
     let owner = localStorage.getItem('User');
     let headline = `<h3>${owner}</h3>`;
-    console.log(headline);
-    console.log(repoList);
     document.querySelector('.reposHeadline').innerHTML = headline;
     this.htmlContainer.innerHTML = template;
     this.addEventListeners();
