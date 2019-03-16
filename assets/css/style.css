@@ -52,10 +52,10 @@ button {
     display: inline-block;
     font-size: .8rem; }
   button:hover, button:focus {
-    background-color: #ccc;
-    color: #666; }
+    background-color: #aaa;
+    color: #333; }
     button:hover a, button:focus a {
-      color: #666; }
+      color: #333; }
 
 .wrapper {
   background-size: cover;
