@@ -77,7 +77,7 @@ class ShowSettingsPanel {
 
 const showSettings = new ShowSettingsPanel();
 
-class ShowMyRepos {
+class ShowRepos {
   constructor(domselector) {
     this.htmlContainer = document.querySelector(domselector);
     this.autoclosePanel = new ShowSettingsPanel();
@@ -109,7 +109,7 @@ class ShowMyRepos {
           this.htmlContainer.innerHTML = `
           <div class="error">The user <strong>${githubUser}</strong> does not seem to exist</div>
           `;
-          localStorage.clear();
+          localStorage.removeItem('User');
         }
 
       );
@@ -231,7 +231,7 @@ class ShowMyRepos {
     this.addEventListeners();
   }
 }
-const showRepos = new ShowMyRepos(".repositories");
+const showRepos = new ShowRepos(".repositories");
 
 class SelectBackground {
   constructor() {
