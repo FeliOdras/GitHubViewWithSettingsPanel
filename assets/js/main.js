@@ -109,7 +109,7 @@ class ShowMyRepos {
           this.htmlContainer.innerHTML = `
           <div class="error">The user <strong>${githubUser}</strong> does not seem to exist</div>
           `;
-          localStorage.clear();
+          localStorage.removeItem('User');
         }
 
       );
