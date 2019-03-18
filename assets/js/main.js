@@ -124,12 +124,8 @@ class ShowRepos {
                     <div class="lang">Primary used technology: ${
                       repo.language
                     }</div>
-<<<<<<< HEAD
-                </h3>       
-=======
                 </h3>
 
->>>>>>> 79d30d1b10e81b68fa2763dba529e0cebfca7bbb
                 ${
                   repo.description != null
                     ? `<div class"repo-description">${repo.description}</div>`
