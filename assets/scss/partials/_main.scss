@@ -4,6 +4,32 @@
     background-color: #ccc;
 }
 
+button {
+    margin: 15px auto 20px auto;
+    background-color: #666;
+    transition: all .5s;
+    color: #fff;
+    padding: 8px;
+    border:none;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+        font-size: .8rem;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: #aaa;
+        color:#333;
+    
+        a {
+            color: #333;
+        }
+    }
+}
+
 .wrapper {
     background-size: cover;
     min-height: 100vh;
