@@ -1,28 +1,21 @@
-# New Tab Github
+# Github View with Settings Panel
 
-_A "New Tab Page" for developers, search in your repositories and see the latest_
+_JavaScript project using GitHub Api to display and filter GitHub Repositories_
 
 ## Preview
 
-![Preview Image](./assets/img/Preview.png)
+![Preview Image](./assets/img/GitHubViewWithSettingsPanel.png)
+
+![Preview Image](./assets/img/GitHubViewWithSettingsPanel-SettingsOpen.png)
 
 ## Features
+- Sliding settings panel
+- Change user name
+- Change background image
+- Local Storage
 
-1. show current time
-1. show recent repositories
-1. search in user repositories
+## Technologies
+- JavaScript
+- HTML/CSS/SCSS
+- moment.js Library
 
----
-
-### Extra
-
-![Extra task preview](./assets/img/Preview-Settings--open.png)
-
-1. Change new tab page user (github)
-1. Multiple backgrounds:
-
-   - user can choose background
-
-   - on page reload chosen background needs to remain
-
-1. menu open and close animations
