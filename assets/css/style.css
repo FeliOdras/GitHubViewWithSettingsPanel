@@ -73,17 +73,17 @@ button {
     .wrapper {
       position: static; } }
   .wrapper#bg-1 {
-    background-image: url(../assets/img/bg-wolf.jpg); }
+    background-image: url(../img/bg-wolf.jpg); }
   .wrapper#bg-2 {
-    background-image: url(../assets/img/bg-canyon.jpg); }
+    background-image: url(../img/bg-canyon.jpg); }
   .wrapper#bg-3 {
-    background-image: url(../assets/img/bg-house.jpg); }
+    background-image: url(../img/bg-house.jpg); }
   .wrapper#bg-4 {
-    background-image: url(../assets/img/bg-mountain.jpg); }
+    background-image: url(../img/bg-mountain.jpg); }
   .wrapper#bg-5 {
-    background-image: url(../assets/img/bg-nature.jpg); }
+    background-image: url(../img/bg-nature.jpg); }
   .wrapper#bg-6 {
-    background-image: url(../assets/img/bg-railroad-tracks.jpg); }
+    background-image: url(../img/bg-railroad-tracks.jpg); }
 
 .fl {
   float: left; }
