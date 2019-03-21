@@ -8,6 +8,10 @@ _JavaScript project using GitHub Api to display and filter GitHub Repositories_
 
 ![Preview Image](./assets/img/GitHubViewWithSettingsPanel-SettingsOpen.png)
 
+---
+#### **[Visit Poject Site &raquo;](https://playground.odras.de/GitHubViewWithSettingsPanel/)**
+---
+
 ## Features
 - Sliding settings panel
 - Change user name
