@@ -18,4 +18,5 @@ _JavaScript project using GitHub Api to display and filter GitHub Repositories_
 - JavaScript
 - HTML/CSS/SCSS
 - moment.js Library
+- GitHub API
 
