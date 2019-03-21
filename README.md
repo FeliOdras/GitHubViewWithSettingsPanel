@@ -4,9 +4,9 @@ _JavaScript project using GitHub Api to display and filter GitHub Repositories_
 
 ## Preview
 
-![Preview Image](./assets/img/GitHubViewWithSettingsPanel.png)
+![Preview Image](./assets/img/GitHubViewWithSettingsPanel.png =250x)
 
-![Preview Image](./assets/img/GitHubViewWithSettingsPanel-SettingsOpen.png)
+![Preview Image](./assets/img/GitHubViewWithSettingsPanel-SettingsOpen.png =250x)
 
 ## Features
 - Sliding settings panel
